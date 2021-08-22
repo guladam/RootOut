@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/CheckboxOff.png" type="Texture" id=1]
+[ext_resource path="res://UI/CheckboxOn.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/FontNormal.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UI/SoundAndMusicToggle.gd" type="Script" id=4]
+
+[node name="SoundAndMusicToggle" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -263.0
+margin_bottom = -194.0
+rect_min_size = Vector2( 57, 46 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicCheckButton" type="CheckButton" parent="."]
+margin_right = 57.0
+margin_bottom = 20.0
+size_flags_horizontal = 0
+custom_icons/off = ExtResource( 1 )
+custom_icons/on = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundCheckButton" type="CheckButton" parent="."]
+margin_top = 24.0
+margin_right = 57.0
+margin_bottom = 44.0
+size_flags_horizontal = 0
+custom_icons/off = ExtResource( 1 )
+custom_icons/on = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "sound"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="MusicCheckButton" to="." method="_on_MusicCheckButton_toggled"]
+[connection signal="toggled" from="SoundCheckButton" to="." method="_on_SoundCheckButton_toggled"]

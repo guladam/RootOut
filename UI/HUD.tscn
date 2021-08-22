@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Fonts/ProjectDynamicFontData.tres" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/SpeedrunTimer.gd" type="Script" id=2]
+[ext_resource path="res://UI/HealthBar/healthbar_fill.png" type="Texture" id=3]
+[ext_resource path="res://UI/HealthBar/healthbar_empty.png" type="Texture" id=4]
+[ext_resource path="res://UI/HealthBar/healthbar_frame.png" type="Texture" id=5]
+[ext_resource path="res://UI/Healthbar.gd" type="Script" id=6]
+[ext_resource path="res://UI/CrystalCounterUI.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/FontNormal.tres" type="DynamicFont" id=8]
+[ext_resource path="res://UI/CrystalCounter.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_top = -2
+font_data = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="SpeedrunTimer" type="MarginContainer" parent="."]
+pause_mode = 2
+margin_right = 66.0
+margin_bottom = 20.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="SpeedrunTimer"]
+modulate = Color( 1, 1, 1, 0.572549 )
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 61.0
+margin_bottom = 17.0
+
+[node name="MarginContainer" type="MarginContainer" parent="SpeedrunTimer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 61.0
+margin_bottom = 17.0
+custom_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="SpeedrunTimer/MarginContainer"]
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 56.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 1 )
+text = "00:00:000"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 20.0
+margin_right = 45.0
+margin_bottom = 52.0
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Healthbar" type="TextureProgress" parent="HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 32.0
+value = 100.0
+texture_under = ExtResource( 4 )
+texture_over = ExtResource( 5 )
+texture_progress = ExtResource( 3 )
+fill_mode = 3
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+margin_left = 25.0
+margin_right = 69.0
+margin_bottom = 32.0
+custom_constants/margin_top = 1
+
+[node name="CrystalCounter" type="HBoxContainer" parent="HBoxContainer/MarginContainer"]
+margin_top = 1.0
+margin_right = 44.0
+margin_bottom = 32.0
+alignment = 1
+script = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/CrystalCounter"]
+margin_right = 22.0
+margin_bottom = 31.0
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/CrystalCounter"]
+margin_left = 26.0
+margin_top = 9.0
+margin_right = 44.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 8 )
+text = "0/3"

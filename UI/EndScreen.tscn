@@ -1,0 +1,195 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/EndScreen.gd" type="Script" id=1]
+[ext_resource path="res://UI/MenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/FontTitle.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/FontNormal.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.588235 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterCointainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -120 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_Pause_fadein_ended"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterCointainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -120 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_Pause_fadeout_ended"
+} ]
+}
+
+[node name="EndScreen" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterCointainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterCointainer"]
+margin_left = 40.0
+margin_top = 45.0
+margin_right = 280.0
+margin_bottom = 194.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="CenterCointainer/VBoxContainer"]
+margin_right = 240.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 240, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "TY FOR PLAYING <3"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterCointainer/VBoxContainer"]
+margin_top = 98.0
+margin_right = 240.0
+margin_bottom = 118.0
+alignment = 1
+
+[node name="Time" type="Label" parent="CenterCointainer/VBoxContainer/HBoxContainer"]
+margin_left = 18.0
+margin_right = 118.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 20 )
+custom_fonts/font = ExtResource( 4 )
+text = "Time: 00:00:000"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Best" type="Label" parent="CenterCointainer/VBoxContainer/HBoxContainer"]
+margin_left = 122.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 20 )
+custom_fonts/font = ExtResource( 4 )
+text = "Best: 00:00:000"
+align = 2
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterCointainer/VBoxContainer"]
+margin_top = 133.0
+margin_right = 240.0
+margin_bottom = 149.0
+mouse_filter = 1
+
+[node name="Buttons" type="VBoxContainer" parent="CenterCointainer/VBoxContainer/CenterContainer"]
+margin_left = 80.0
+margin_right = 160.0
+margin_bottom = 16.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" parent="CenterCointainer/VBoxContainer/CenterContainer/Buttons" instance=ExtResource( 2 )]
+
+[node name="Label" parent="CenterCointainer/VBoxContainer/CenterContainer/Buttons/MainMenu" index="0"]
+text = "MAIN MENU"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+
+[connection signal="pressed" from="CenterCointainer/VBoxContainer/CenterContainer/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]
+
+[editable path="CenterCointainer/VBoxContainer/CenterContainer/Buttons/MainMenu"]

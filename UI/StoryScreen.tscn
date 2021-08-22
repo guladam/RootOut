@@ -1,0 +1,165 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/StoryScreen.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/FontNormal.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/FontTitle.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterCointainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -120 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterCointainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -120 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="StoryScreen" type="Panel"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterCointainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -120.0
+margin_bottom = -120.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterCointainer"]
+margin_left = 10.0
+margin_top = 12.0
+margin_right = 310.0
+margin_bottom = 228.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="CenterCointainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 240, 50 )
+custom_fonts/font = ExtResource( 4 )
+text = "STORY"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterCointainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 300.0
+margin_bottom = 190.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterCointainer/VBoxContainer/CenterContainer2"]
+margin_right = 300.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 300, 130 )
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "One day, a group of scientists called [wave amp=20 freq=2]LAB[/wave] (Life Advancement Bureau) developed a new life form of extraordinary abilities. But when Nature merges with a scientist, an [shake rate=5 level=10]Uncontrollable Growth[/shake] of [color=green]natural[/color] disasters begin."
+text = "One day, a group of scientists called LAB (Life Advancement Bureau) developed a new life form of extraordinary abilities. But when Nature merges with a scientist, an Uncontrollable Growth of natural disasters begin."
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterCointainer/VBoxContainer"]
+margin_top = 200.0
+margin_right = 300.0
+margin_bottom = 216.0
+mouse_filter = 1
+
+[node name="Buttons" type="VBoxContainer" parent="CenterCointainer/VBoxContainer/CenterContainer"]
+margin_left = 110.0
+margin_right = 190.0
+margin_bottom = 16.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" parent="CenterCointainer/VBoxContainer/CenterContainer/Buttons" instance=ExtResource( 1 )]
+
+[node name="Label" parent="CenterCointainer/VBoxContainer/CenterContainer/Buttons/MainMenu" index="0"]
+text = "GOT IT!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+
+[connection signal="pressed" from="CenterCointainer/VBoxContainer/CenterContainer/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]
+
+[editable path="CenterCointainer/VBoxContainer/CenterContainer/Buttons/MainMenu"]

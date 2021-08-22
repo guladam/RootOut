@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/UIButton.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/FontNormal.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/UIButtonFocus.png" type="Texture" id=3]
+[ext_resource path="res://UI/UIButtonPressed.png" type="Texture" id=4]
+
+[node name="MenuButton" type="TextureButton"]
+margin_right = 80.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 80, 16 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+text = "NEW GAME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
