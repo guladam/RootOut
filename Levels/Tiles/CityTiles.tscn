@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Levels/Tiles/PuddleCityMiddle.png" type="Texture" id=1]
+[ext_resource path="res://Levels/Tiles/PuddleCityLeft.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Tiles/CityTile.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Tiles/PuddleCityRight.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Tiles/CityEmpty.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 0.5 )
+
+[node name="CityTiles" type="Node2D"]
+
+[node name="CityTile" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CityTile"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CityTile/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="EmptyTile" type="Sprite" parent="."]
+position = Vector2( 16, 0 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="EmptyTile"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EmptyTile/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="PuddleLeft" type="Sprite" parent="."]
+position = Vector2( 32, 0 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PuddleLeft"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleLeft/StaticBody2D"]
+polygon = PoolVector2Array( -7, -6, 0, 6, 6, 6, 7, 7, 8, 7, 8, 8, -8, 8, -8, -2, -8, -6 )
+
+[node name="PuddleMiddle" type="Sprite" parent="."]
+position = Vector2( 48, 0 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PuddleMiddle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuddleMiddle/StaticBody2D"]
+position = Vector2( 0, 7.5 )
+shape = SubResource( 2 )
+
+[node name="PuddleRight" type="Sprite" parent="."]
+position = Vector2( 64, 0 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PuddleRight"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuddleRight/StaticBody2D"]
+polygon = PoolVector2Array( 8, -6, 8, 8, -8, 8, -8, 7, 0, 5, 7, -1, 7, -6 )

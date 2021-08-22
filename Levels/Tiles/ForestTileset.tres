@@ -1,0 +1,243 @@
+[gd_resource type="TileSet" load_steps=20 format=2]
+
+[ext_resource path="res://Levels/Tiles/ForestPlatformLeftTile.png" type="Texture" id=1]
+[ext_resource path="res://Levels/Tiles/ForestPlatformRightTile.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Tiles/ForestGroundTile.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Tiles/ForestDirtTile.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Tiles/ForestPlatformMiddleTile.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Tiles/PuddleRight.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Tiles/PuddleLeft.png" type="Texture" id=7]
+[ext_resource path="res://Levels/Tiles/PuddleMiddle.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 5.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 2.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 7, 7, 8, 7, 8, 8, -8, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 6, 6, 7, 7, -8, 8, 0, 6 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( -7, -2, 0, 6, -8, 8, -8, -2 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( -7, -2, -7, -2, -8, -2 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 0.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 7, -2, 8, -2, 8, 8, 7, -1 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 0, 5, 7, -1, 8, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 0, 5, 8, 8, -8, 8, -8, 7 )
+
+[resource]
+0/name = "ForestDirtTile"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 8, 8 )
+0/navigation_offset = Vector2( 8, 8 )
+0/shape_offset = Vector2( 8, 8 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
+} ]
+0/z_index = 0
+1/name = "ForestGroundTile"
+1/texture = ExtResource( 3 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 8, 8 )
+1/navigation_offset = Vector2( 8, 8 )
+1/shape_offset = Vector2( 8, 10.5 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 8, 10.5 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 10.5 )
+} ]
+1/z_index = 0
+2/name = "ForestPlatformLeftTile"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 8, 8 )
+2/navigation_offset = Vector2( 8, 8 )
+2/shape_offset = Vector2( 8, 8.5 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8.5 )
+2/shape = SubResource( 3 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8.5 )
+} ]
+2/z_index = 0
+3/name = "ForestPlatformMiddleTile"
+3/texture = ExtResource( 5 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 8, 8 )
+3/navigation_offset = Vector2( 8, 8 )
+3/shape_offset = Vector2( 8, 8.5 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8.5 )
+3/shape = SubResource( 3 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8.5 )
+} ]
+3/z_index = 0
+4/name = "ForestPlatformRightTile"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 8, 8 )
+4/navigation_offset = Vector2( 8, 8 )
+4/shape_offset = Vector2( 8, 8.5 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8.5 )
+4/shape = SubResource( 3 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8.5 )
+} ]
+4/z_index = 0
+5/name = "PuddleLeft"
+5/texture = ExtResource( 7 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 16, 16 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 8, 8 )
+5/navigation_offset = Vector2( 8, 8 )
+5/shape_offset = Vector2( 8, 8 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
+5/shape = SubResource( 4 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
+} ]
+5/z_index = 0
+6/name = "PuddleMiddle"
+6/texture = ExtResource( 8 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 16, 16 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 8, 8 )
+6/navigation_offset = Vector2( 8, 8 )
+6/shape_offset = Vector2( 8, 15.5 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 8, 15.5 )
+6/shape = SubResource( 8 )
+6/shape_one_way = false
+6/shape_one_way_margin = 1.0
+6/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 15.5 )
+} ]
+6/z_index = 0
+7/name = "PuddleRight"
+7/texture = ExtResource( 6 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 16, 16 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 8, 8 )
+7/navigation_offset = Vector2( 8, 8 )
+7/shape_offset = Vector2( 8, 8 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
+7/shape = SubResource( 9 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
+7/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
+} ]
+7/z_index = 0
