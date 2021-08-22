@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boss_BOOM.wav-cb0b1a68271db0adb676dd815e6ce47d.sample"
+
+[deps]
+
+source_file="res://Characters/Boss/boss_BOOM.wav"
+dest_files=[ "res://.import/boss_BOOM.wav-cb0b1a68271db0adb676dd815e6ce47d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

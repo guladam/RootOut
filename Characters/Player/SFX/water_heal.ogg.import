@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/water_heal.ogg-c3e979059647b36069238cbb6883c109.oggstr"
+
+[deps]
+
+source_file="res://Characters/Player/SFX/water_heal.ogg"
+dest_files=[ "res://.import/water_heal.ogg-c3e979059647b36069238cbb6883c109.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0.0

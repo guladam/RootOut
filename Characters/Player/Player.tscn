@@ -1,0 +1,279 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Characters/Player/MainCharacter.png" type="Texture" id=1]
+[ext_resource path="res://Characters/Player/Crosshair.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/SoundEffectPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/Player/Player.gd" type="Script" id=4]
+[ext_resource path="res://Characters/Player/PlayerHealth.gd" type="Script" id=5]
+[ext_resource path="res://Characters/Player/Shooter.gd" type="Script" id=6]
+[ext_resource path="res://Characters/Player/SFX/acorn_shoot.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Characters/Player/SFX/bean shoot.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Characters/Player/ShootingAim.gd" type="Script" id=9]
+[ext_resource path="res://Characters/Player/Sounds.gd" type="Script" id=10]
+[ext_resource path="res://Characters/Player/SFX/jump.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Characters/Player/SFX/bean_fail.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Characters/Player/SFX/teleport.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Characters/Player/SFX/water_heal.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Characters/Player/SFX/low_hydration.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Characters/Player/SFX/max_hp.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Characters/Player/SFX/walk.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Characters/Player/SFX/death.wav" type="AudioStream" id=18]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_Death_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "TeleportEnd"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 14, 13, 12, 11, 10, 9 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_TeleportEnd_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "TeleportStart"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 12, 13, 14, 15 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_TeleportStart_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 7, 6 ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 5.875, 29.2606 )
+
+[node name="Player" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
+collision_mask = 44
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 175
+gravity = 2000
+friction = 0.3
+acceleration = 0.5
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 9
+vframes = 3
+frame = 17
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Death = SubResource( 1 )
+anims/TeleportEnd = SubResource( 2 )
+anims/TeleportStart = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/jump = SubResource( 5 )
+anims/walk = SubResource( 6 )
+
+[node name="ShootingAim" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Aim" type="Sprite" parent="ShootingAim"]
+position = Vector2( 50, 0 )
+z_index = 99
+texture = ExtResource( 2 )
+
+[node name="Shooter" type="Position2D" parent="ShootingAim/Aim"]
+script = ExtResource( 6 )
+__meta__ = {
+"_gizmo_extents_": 20.0
+}
+
+[node name="AcornSoundEffect" parent="ShootingAim/Aim/Shooter" instance=ExtResource( 3 )]
+stream = ExtResource( 7 )
+volume_db = -5.048
+
+[node name="BeanSoundEffect" parent="ShootingAim/Aim/Shooter" instance=ExtResource( 3 )]
+stream = ExtResource( 8 )
+
+[node name="TeleportBeanCooldown" type="Timer" parent="ShootingAim/Aim/Shooter"]
+
+[node name="AcornCooldown" type="Timer" parent="ShootingAim/Aim/Shooter"]
+wait_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 7 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+update_rotation = false
+update_scale = false
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="GroundRay" type="RayCast2D" parent="."]
+position = Vector2( 0, 12 )
+enabled = true
+cast_to = Vector2( 0, 40 )
+
+[node name="ClimbRay" type="RayCast2D" parent="."]
+position = Vector2( 0, 4 )
+enabled = true
+cast_to = Vector2( 0, -15 )
+collision_mask = 32
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="PlayerHealth" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="HealingSound" parent="PlayerHealth" instance=ExtResource( 3 )]
+stream = ExtResource( 14 )
+volume_db = 6.058
+
+[node name="MaxHealthSound" parent="PlayerHealth" instance=ExtResource( 3 )]
+stream = ExtResource( 16 )
+
+[node name="LowHydrationSound" parent="PlayerHealth" instance=ExtResource( 3 )]
+stream = ExtResource( 15 )
+
+[node name="Sounds" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="BeanHit" parent="Sounds" instance=ExtResource( 3 )]
+stream = ExtResource( 13 )
+
+[node name="BeanFail" parent="Sounds" instance=ExtResource( 3 )]
+stream = ExtResource( 12 )
+
+[node name="Jump" parent="Sounds" instance=ExtResource( 3 )]
+stream = ExtResource( 11 )
+volume_db = -3.029
+
+[node name="Walk" parent="Sounds" instance=ExtResource( 3 )]
+stream = ExtResource( 17 )
+volume_db = 4.039
+
+[node name="Death" parent="Sounds" instance=ExtResource( 3 )]
+stream = ExtResource( 18 )
+
+[node name="DustParticleSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 0, 18 )
+
+[connection signal="timeout" from="ShootingAim/Aim/Shooter/TeleportBeanCooldown" to="ShootingAim/Aim/Shooter" method="_on_TeleportBeanCooldown_timeout"]
+[connection signal="timeout" from="ShootingAim/Aim/Shooter/AcornCooldown" to="ShootingAim/Aim/Shooter" method="_on_AcornCooldown_timeout"]
+[connection signal="player_died" from="PlayerHealth" to="." method="_on_PlayerHealth_player_died"]

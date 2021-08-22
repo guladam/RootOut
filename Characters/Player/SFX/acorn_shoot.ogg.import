@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/acorn_shoot.ogg-66275afb0a18a78556b47115b80cdda9.oggstr"
+
+[deps]
+
+source_file="res://Characters/Player/SFX/acorn_shoot.ogg"
+dest_files=[ "res://.import/acorn_shoot.ogg-66275afb0a18a78556b47115b80cdda9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

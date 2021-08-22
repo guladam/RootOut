@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bean_fail.ogg-ca137618af6ba4f19c606503e0d3ef77.oggstr"
+
+[deps]
+
+source_file="res://Characters/Player/SFX/bean_fail.ogg"
+dest_files=[ "res://.import/bean_fail.ogg-ca137618af6ba4f19c606503e0d3ef77.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

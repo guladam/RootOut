@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Characters/Crystal/Crystal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Boss/BossSpritesheet.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Boss/Boss.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "IdleHighlyDamaged"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8 ]
+}
+
+[node name="Boss" type="KinematicBody2D" groups=[
+"bosses",
+]]
+scale = Vector2( 0.75, 0.75 )
+collision_layer = 4
+collision_mask = 18
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0.5, -29.25, 22.375, 0.875, 0.125, 29.375, -22.25, 0.875 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 4
+vframes = 3
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )
+anims/IdleDamaged = SubResource( 2 )
+anims/IdleHighlyDamaged = SubResource( 3 )
+
+[node name="Crystals" type="Node2D" parent="."]
+
+[node name="CrystalPivot" type="Node2D" parent="Crystals"]
+
+[node name="Crystal" parent="Crystals/CrystalPivot" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrystalPivot2" type="Node2D" parent="Crystals"]
+
+[node name="Crystal" parent="Crystals/CrystalPivot2" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrystalPivot3" type="Node2D" parent="Crystals"]
+
+[node name="Crystal" parent="Crystals/CrystalPivot3" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrystalPivot4" type="Node2D" parent="Crystals"]
+
+[node name="Crystal" parent="Crystals/CrystalPivot4" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrystalPivot5" type="Node2D" parent="Crystals"]
+
+[node name="Crystal" parent="Crystals/CrystalPivot5" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrystalPivot6" type="Node2D" parent="Crystals"]
+
+[node name="Crystal" parent="Crystals/CrystalPivot6" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrystalPivot7" type="Node2D" parent="Crystals"]
+
+[node name="Crystal" parent="Crystals/CrystalPivot7" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="crystal_destroyed" from="Crystals/CrystalPivot/Crystal" to="." method="_on_Crystal_crystal_destroyed"]
+[connection signal="crystal_destroyed" from="Crystals/CrystalPivot2/Crystal" to="." method="_on_Crystal_crystal_destroyed"]
+[connection signal="crystal_destroyed" from="Crystals/CrystalPivot3/Crystal" to="." method="_on_Crystal_crystal_destroyed"]
+[connection signal="crystal_destroyed" from="Crystals/CrystalPivot4/Crystal" to="." method="_on_Crystal_crystal_destroyed"]
+[connection signal="crystal_destroyed" from="Crystals/CrystalPivot5/Crystal" to="." method="_on_Crystal_crystal_destroyed"]
+[connection signal="crystal_destroyed" from="Crystals/CrystalPivot6/Crystal" to="." method="_on_Crystal_crystal_destroyed"]
+[connection signal="crystal_destroyed" from="Crystals/CrystalPivot7/Crystal" to="." method="_on_Crystal_crystal_destroyed"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

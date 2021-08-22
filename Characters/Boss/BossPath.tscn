@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Characters/Boss/Boss.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Boss/BossPath.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 128, 64, 0, 0, 0, 0, -128, 64, 0, 0, 0, 0, -128, 0 )
+}
+
+[node name="BossPath" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 0.0704519, 0 )
+offset = 127.916
+rotate = false
+
+[node name="Boss" parent="PathFollow2D" instance=ExtResource( 1 )]
