@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/win_KESZ.ogg-92a072939810f449011aa85dfb9c0bcd.oggstr"
+
+[deps]
+
+source_file="res://Music/win_KESZ.ogg"
+dest_files=[ "res://.import/win_KESZ.ogg-92a072939810f449011aa85dfb9c0bcd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

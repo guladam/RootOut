@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lvl_2_KESZ.ogg-e89e971ea89f9ac55e7b6be292319767.oggstr"
+
+[deps]
+
+source_file="res://Music/lvl_2_KESZ.ogg"
+dest_files=[ "res://.import/lvl_2_KESZ.ogg-e89e971ea89f9ac55e7b6be292319767.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
